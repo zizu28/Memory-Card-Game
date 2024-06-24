@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    background-color: black;
+    color: white;
+}
+
+#gameScores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+}
