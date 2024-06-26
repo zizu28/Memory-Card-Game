@@ -1,8 +1,6 @@
 import GetImages from './Api'
 
 export default function Scores({ score, bestScore }){
-    const images = GetImages();
-    images.then(image => console.log(image))
     return (
         <div id="gameScores">
             <div id="scoresTitle">Memory Card Game</div>

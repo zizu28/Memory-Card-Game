@@ -1,8 +1,7 @@
-import GetImages from './Api'
-
-export default function Card(){
-    const images = GetImages();
-    images.then(image => {
-        
-    })
+export default function Card({ image }){
+    return (
+        <div id="card">
+            <img src={image} />
+        </div>
+    )
 }

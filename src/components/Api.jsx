@@ -1,6 +1,6 @@
 export default async function GetImages(){
     try{
-        const response = await fetch("https://api.giphy.com/v1/gifs/search?q=pokemon&api_key=5jPQE4Oe3NJuZbtMgBTGjkVPTmH2v9MV&limit=1", {mode: 'cors'});
+        const response = await fetch("https://api.giphy.com/v1/gifs/search?q=pokemon&api_key=5jPQE4Oe3NJuZbtMgBTGjkVPTmH2v9MV&limit=15", {mode: 'cors'});
         if(!response.ok){
             throw new Error(`Api request failed with status ${response.status}`);
         }

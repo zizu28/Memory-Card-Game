@@ -89,21 +89,26 @@ button:focus-visible {
   gap: 20px;
 }
 
+#cardContainer {
+  margin: 0 20px;
+  width: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 #card {
-  width: 200px;
-  height: 200px;
-  background-color: darkcyan;
+  width: 240px;
+  height: 250px;
   box-shadow: 3px 3px 3px gray;
 }
 
 #card img {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
+  width: 240px;
+  height: 250px;
 }
 
 #card:hover {
-  background-color: gray;
   box-shadow: 3px 3px 3px darkcyan;
 }
 
@@ -118,5 +123,31 @@ button:focus-visible {
 }
 
 #scoresDetails {
-  font-size: 1.5em;
+  font-size: 1.75em;
+}
+
+@media (max-width: 1470px) {
+  #card {
+    width: 20px;
+    height: 300px;
+    box-shadow: 3px 3px 3px gray;
+  }
+  
+  #card img {
+    width: 200px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 1370px) {
+  #card {
+    width: 175px;
+    height: 300px;
+    box-shadow: 3px 3px 3px gray;
+  }
+  
+  #card img {
+    width: 175px;
+    height: 300px;
+  }
 }
