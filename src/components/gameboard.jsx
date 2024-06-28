@@ -10,6 +10,11 @@ cardsInfo.forEach(info => {
     data.push(<Card key={info.id} image={info.url}/>)
 })
 
+
+let newBestScore = 0;
+let prevBestScore = 0;
+let BestScores = [];
+
 export default function GameBoard(){
     const [score, setScore] = useState(0)
     const [bestScore, setBestScore] = useState(0)
@@ -19,27 +24,33 @@ export default function GameBoard(){
         setItems(data)
     },[])
 
-    const countClicked = () => {
-        const children = document.getElementById('cardContainer').querySelectorAll('div');
-        let filteredChildren = 0;
-        children.forEach(child => {
-            if(child.classList.contains('clicked')){
-                filteredChildren++;
-            }
-        })
-        return filteredChildren;
-    }
-
     const handleCardShuffle = (e) => {
         const clickedItem = e.target.closest('div');
+        const children = document.getElementById('cardContainer').querySelectorAll('div');
         if(clickedItem.classList.contains('clicked')){
+            BestScores.push(newBestScore);
+            newBestScore = 0;
+            prevBestScore = Math.max(...BestScores);
             setScore(0);
+            setBestScore(prevBestScore);
+            children.forEach(child => {
+                if(child.classList.contains('clicked')){
+                    child.classList.remove('clicked');
+                }
+            })
         }
-        if(clickedItem){
+        else{
             clickedItem.classList.add('clicked');
             const newItems = [];
             const indexes = [];
             setScore(score + 1);
+            newBestScore++;
+            setBestScore(newBestScore > prevBestScore ? newBestScore : prevBestScore);
+            
+            // if(newBestScore > prevBestScore){
+            //     newBestScore++;
+            //     setBestScore(newBestScore);
+            // }
             while(indexes.length < 15){
                 let index = Math.floor(Math.random() * 15);
                 if(indexes.includes(index)){
@@ -52,7 +63,6 @@ export default function GameBoard(){
             }  
             setItems(newItems);
         }
-        setBestScore(countClicked());
     }
 
     return (

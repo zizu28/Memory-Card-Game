@@ -1,6 +1,6 @@
 export default function Card({ image }){
     return (
-        <div id="card">
+        <div className="card">
             <img src={image} />
         </div>
     )
